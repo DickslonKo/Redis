@@ -13,10 +13,9 @@ def Hello_World(x):
     if r.exists(x) == 1:
         return r.get(x)
     else:
-        for i in range (1000000):
-            result = int(x) + 1
-            time.sleep(5)
-            r.set(x, result, ex=30)
-            return result
+        result = int(x) + 1
+        time.sleep(5)
+        r.set(x, result, ex=30)
+        return result
 
 
