@@ -3,7 +3,7 @@ import redis
 import time
 
 app = Flask(__name__)
-@app.route("/")
+@app.route("/<x>")
 def Hello_World(x):
     r = redis.Redis(
         host='127.0.0.1',
