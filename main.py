@@ -1,14 +1,22 @@
 from flask import Flask
 import redis
+import time
 
 app = Flask(__name__)
 @app.route("/")
-def Hello_World():
-    #Ask Redis, does x exist?
-    #if not exist, return stored value
-    #if not exist, calculate
-    x = 0
-    for i in range (1000000):
-        result = x + 1
-    return result
+def Hello_World(x):
+    r = redis.Redis(
+        host='10.170.0.2',
+        port=6379,
+        db = 0)
+
+    if r.exists(x) == 1:
+        return r.get(x)
+    else:
+        for i in range (1000000):
+            result = int(x) + 1
+            time.sleep(5)
+            r.set(x, result, ex=30)
+            return f"{result}"
+
 
