@@ -2,7 +2,7 @@ from flask import Flask
 import redis
 
 app = Flask(__name__)
-@app.route("/Hello World/")
+@app.route("/")
 def Hello_World():
     #Ask Redis, does x exist?
     #if not exist, return stored value
