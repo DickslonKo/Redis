@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def Hello_World(x):
     r = redis.Redis(
-        host='10.170.0.2',
+        host='127.0.0.1',
         port=6379,
         db = 0)
 
@@ -17,6 +17,6 @@ def Hello_World(x):
             result = int(x) + 1
             time.sleep(5)
             r.set(x, result, ex=30)
-            return result
+            return f"{result}"
 
 
