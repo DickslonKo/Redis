@@ -17,6 +17,6 @@ def Hello_World(x):
             result = int(x) + 1
             time.sleep(5)
             r.set(x, result, ex=30)
-            return f"{result}"
+            return result
 
 
